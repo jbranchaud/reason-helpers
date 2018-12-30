@@ -1,0 +1,49 @@
+{
+  "name": "reason-helpers",
+  "version": "0.0.0",
+  "description": "My Project",
+  "esy": {
+    "build": "pesy",
+    "release": {
+      "releasedBinaries": [
+        "ReasonHelpersApp.exe"
+      ]
+    }
+  },
+  "buildDirs": {
+    "test": {
+      "require": [
+        "reason-helpers.lib",
+        "alcotest"
+      ],
+      "main": "TestReasonHelpers",
+      "name": "TestReasonHelpers.exe"
+    },
+    "library": {
+      "name": "reason-helpers.lib",
+      "namespace": "ReasonHelpers"
+    },
+    "executable": {
+      "require": [
+        "reason-helpers.lib"
+      ],
+      "main": "ReasonHelpersApp",
+      "name": "ReasonHelpersApp.exe"
+    }
+  },
+  "scripts": {
+    "pesy": "bash -c 'env PESY_MODE=update pesy'",
+    "test": "esy x TestReasonHelpers.exe"
+  },
+  "dependencies": {
+    "@opam/dune": "*",
+    "@esy-ocaml/reason": "*",
+    "refmterr": "*",
+    "ocaml": "^4.4.0",
+    "pesy": "*",
+    "@opam/alcotest": "*"
+  },
+  "devDependencies": {
+    "@opam/merlin": "*"
+  }
+}
