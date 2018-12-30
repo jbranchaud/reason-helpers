@@ -27,7 +27,7 @@ reason-helpers@0.0.0
     require: reason-helpers.lib
 ```
 
-## Developing:
+### Developing:
 
 ```
 npm install -g esy
@@ -36,7 +36,7 @@ esy install
 esy build
 ```
 
-## Running Binary:
+### Running Binary:
 
 After building the project, you can run the main binary that is produced.
 
@@ -44,7 +44,7 @@ After building the project, you can run the main binary that is produced.
 esy x ReasonHelpersApp.exe 
 ```
 
-## Running Tests:
+### Running Tests:
 
 ```
 # Runs the "test" command in `package.json`.
