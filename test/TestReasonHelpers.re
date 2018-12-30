@@ -64,9 +64,40 @@ let read_lines_from_file_tests = [
   ),
 ];
 
+let swap_tests = [
+  (
+    "test swap with a simple list",
+    `Quick,
+    () =>
+      assert_true(
+        "returns the swapped list",
+        ReasonHelpers.Util.swap(0, 1, ["one", "two"]) == ["two", "one"],
+      ),
+  ),
+  (
+    "test swap with a bigger list",
+    `Quick,
+    () =>
+      assert_true(
+        "returns the swapped list",
+        ReasonHelpers.Util.swap(3, 1, ['a', 'b', 'c', 'd', 'e'])
+        == ['a', 'd', 'c', 'b', 'e'],
+      ),
+  ),
+  (
+    "test swap with a bigger list",
+    `Quick,
+    () =>
+      Alcotest.check_raises("raises exception", Failure("nth"), () =>
+        ReasonHelpers.Util.swap(0, 1, ['a']) |> ignore
+      ),
+  ),
+];
+
 let test_suites: list(Alcotest.test(unit)) = [
   ("Test last_opt", last_opt_tests),
   ("Test read_lines_from_file", read_lines_from_file_tests),
+  ("Test swap", swap_tests),
 ];
 
 let () = Alcotest.run("proj", test_suites);

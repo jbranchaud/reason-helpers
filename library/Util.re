@@ -24,3 +24,23 @@ let read_lines_from_file = (filename: string): list(string) => {
 
   strings;
 };
+
+/* swap two items in a list */
+let swap = (i: int, j: int, items: list('a)): list('a) => {
+  let i_item = List.nth(items, i);
+  let j_item = List.nth(items, j);
+
+  let swapper =
+    List.mapi((index, item) =>
+      switch (index) {
+      | x when x == i => j_item
+      | x when x == j => i_item
+      | _ => item
+      }
+    );
+
+  swapper(items);
+};
+
+/* flip the two arguments that get passed to a function */
+let flip = (f, a, b) => f(b, a);
