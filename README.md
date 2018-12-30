@@ -1,8 +1,10 @@
-# reason-helpers
+# ReasonML Helpers
 
+> A collection of helper functions that have proved useful as I've explored ReasonML
 
-[![CircleCI](https://circleci.com/gh/yourgithubhandle/reason-helpers/tree/master.svg?style=svg)](https://circleci.com/gh/yourgithubhandle/reason-helpers/tree/master)
+## Pesy Documentation
 
+> This project was bootstrapped by and is powered by [Pesy](https://github.com/jordwalke/pesy). The following documentation explains how to work with the Pesy part of this project.
 
 **Contains the following libraries and executables:**
 
