@@ -44,3 +44,43 @@ let swap = (i: int, j: int, items: list('a)): list('a) => {
 
 /* flip the two arguments that get passed to a function */
 let flip = (f, a, b) => f(b, a);
+
+/**********************/
+/*** Option Helpers ***/
+/**********************/
+
+/* attribution: Sean Grove (https://gist.github.com/sgrove/600eeb97a70b4cd6c9b54041281ee503) */
+let default = (value, opt) =>
+  switch (opt) {
+  | None => value
+  | Some(value) => value
+  };
+
+/* attribution: Sean Grove (https://gist.github.com/sgrove/600eeb97a70b4cd6c9b54041281ee503) */
+let expect = (name, opt) =>
+  switch (opt) {
+  | None => raise(Failure("Missing value for " ++ name))
+  | Some(value) => value
+  };
+
+/* attribution: Sean Grove (https://gist.github.com/sgrove/600eeb97a70b4cd6c9b54041281ee503) */
+let map = (opt, update) =>
+  switch (opt) {
+  | None => None
+  | Some(value) => Some(update(value))
+  };
+
+/* attribution: Sean Grove (https://gist.github.com/sgrove/600eeb97a70b4cd6c9b54041281ee503) */
+let fmap = (opt, update) =>
+  switch (opt) {
+  | None => None
+  | Some(value) => update(value)
+  };
+
+let exists = (opt: option('a)): bool =>
+  switch (opt) {
+  | None => false
+  | Some(_) => true
+  };
+
+/*** End of Option Helpers ***/
