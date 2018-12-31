@@ -136,12 +136,34 @@ let remove_last_char_tests = [
   ),
 ];
 
+let string_to_chars_tests = [
+  (
+    "get list of chars for a string",
+    `Quick,
+    () =>
+      assert_true(
+        "returns the list of chars",
+        ReasonHelpers.Util.string_to_chars("abc") == ['a', 'b', 'c'],
+      ),
+  ),
+  (
+    "get list of chars for an empty string",
+    `Quick,
+    () =>
+      assert_true(
+        "returns an empty list",
+        ReasonHelpers.Util.string_to_chars("") == [],
+      ),
+  ),
+];
+
 let test_suites: list(Alcotest.test(unit)) = [
   ("Test last_opt", last_opt_tests),
   ("Test read_lines_from_file", read_lines_from_file_tests),
   ("Test swap", swap_tests),
   ("Test remove_first_char", remove_first_char_tests),
   ("Test remove_last_char", remove_last_char_tests),
+  ("Test string_to_chars", string_to_chars_tests),
 ];
 
 let () = Alcotest.run("proj", test_suites);

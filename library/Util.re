@@ -67,6 +67,10 @@ let remove_last_char = (str: string): string =>
     Bytes.to_string(dst);
   };
 
+/* get the list of chars that make up a string */
+let string_to_chars = (string): list(char) =>
+  String.to_seq(string) |> List.of_seq;
+
 /* End of String Helpers */
 
 /****************/
