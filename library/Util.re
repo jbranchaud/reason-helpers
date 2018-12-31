@@ -71,6 +71,20 @@ let remove_last_char = (str: string): string =>
 let string_to_chars = (string): list(char) =>
   String.to_seq(string) |> List.of_seq;
 
+/* compute the Levenshtein distance between two strings */
+let rec lev_distance = (s1: string, s2: string): int =>
+  switch (String.length(s1), String.length(s2)) {
+  | (0, s1_length) => s1_length
+  | (s2_length, 0) => s2_length
+  | (s1_length, s2_length) =>
+    let cost = s1.[s1_length - 1] == s2.[s2_length - 1] ? 0 : 1;
+    let d1 = lev_distance(remove_last_char(s1), s2) + 1;
+    let d2 = lev_distance(s1, remove_last_char(s2)) + 1;
+    let d3 =
+      lev_distance(remove_last_char(s1), remove_last_char(s2)) + cost;
+    min(d1, min(d2, d3));
+  };
+
 /* End of String Helpers */
 
 /****************/

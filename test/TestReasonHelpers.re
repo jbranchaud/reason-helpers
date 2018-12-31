@@ -157,6 +157,36 @@ let string_to_chars_tests = [
   ),
 ];
 
+let lev_distance_tests = [
+  (
+    "compute lev distance of two same strings",
+    `Quick,
+    () =>
+      assert_true(
+        "returns 0",
+        ReasonHelpers.Util.lev_distance("Hello", "Hello") == 0,
+      ),
+  ),
+  (
+    "compute lev distance of two different strings",
+    `Quick,
+    () =>
+      assert_true(
+        "returns 3",
+        ReasonHelpers.Util.lev_distance("Kitten", "Sitting") == 3,
+      ),
+  ),
+  (
+    "compute lev distance of a string that is empty",
+    `Quick,
+    () =>
+      assert_true(
+        "returns 5",
+        ReasonHelpers.Util.lev_distance("", "Hello") == 5,
+      ),
+  ),
+];
+
 let test_suites: list(Alcotest.test(unit)) = [
   ("Test last_opt", last_opt_tests),
   ("Test read_lines_from_file", read_lines_from_file_tests),
@@ -164,6 +194,7 @@ let test_suites: list(Alcotest.test(unit)) = [
   ("Test remove_first_char", remove_first_char_tests),
   ("Test remove_last_char", remove_last_char_tests),
   ("Test string_to_chars", string_to_chars_tests),
+  ("test lev_distance", lev_distance_tests),
 ];
 
 let () = Alcotest.run("proj", test_suites);
