@@ -119,6 +119,12 @@ let read_lines_from_file = (filename: string): list(string) => {
 /* flip the two arguments that get passed to a function */
 let flip = (f, a, b) => f(b, a);
 
+/* add two int values */
+let add = (a: int, b: int): int => a + b;
+
+/* fold_left helper for summing a list of ints */
+let sum = (l: list(int)): int => List.fold_left(add, 0, l);
+
 /* End of Functional Helpers */
 
 /**********************/
