@@ -27,7 +27,47 @@ let swap = (i: int, j: int, items: list('a)): list('a) => {
   swapper(items);
 };
 
+type take_result = {
+  take: list(string),
+  remain: list(string),
+};
+
+let rec take = (items: list('a), count: int): take_result =>
+  switch (items, count) {
+  | ([], _) => {take: [], remain: []}
+  | (remain, 0) => {take: [], remain}
+  | ([first, ...rest], n) =>
+    let result = take(rest, n - 1);
+    {take: [first, ...result.take], remain: result.remain};
+  };
+
 /* End of List Helpers */
+
+/******************/
+/* String Helpers */
+/******************/
+
+/* get a copy of a string with the first char removed */
+let remove_first_char = (str: string): string =>
+  switch (String.length(str) - 1) {
+  | copy_len when copy_len < 0 => ""
+  | copy_len =>
+    let dst = Bytes.create(copy_len);
+    Bytes.blit_string(str, 1, dst, 0, copy_len);
+    Bytes.to_string(dst);
+  };
+
+/* get a copy of a string with the last char removed */
+let remove_last_char = (str: string): string =>
+  switch (String.length(str) - 1) {
+  | copy_len when copy_len < 0 => ""
+  | copy_len =>
+    let dst = Bytes.create(copy_len);
+    Bytes.blit_string(str, 0, dst, 0, copy_len);
+    Bytes.to_string(dst);
+  };
+
+/* End of String Helpers */
 
 /****************/
 /* File Helpers */
