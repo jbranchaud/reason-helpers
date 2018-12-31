@@ -2,6 +2,8 @@
 
 > A collection of helper functions that have proved useful as I've explored ReasonML
 
+You can view all the helpers in the [Util.re](https://github.com/jbranchaud/reason-helpers/blob/master/library/Util.re) file.
+
 ## Pesy Documentation
 
 > This project was bootstrapped by and is powered by [Pesy](https://github.com/jordwalke/pesy). The following documentation explains how to work with the Pesy part of this project.
